@@ -55,7 +55,7 @@ public class PostDAOImpl implements PostDAO {
             {
                 throw new UserNotExisting("User with the id "+userId+" does not exists");
             }
-            while (rs.next()) {
+            do {
                 if (timestamp.before(rs.getTimestamp(4))) {
                     postsToReturn.add(Post.builder()
                             .withId(rs.getInt(1))
@@ -66,6 +66,7 @@ public class PostDAOImpl implements PostDAO {
                             .build());
                 }
             }
+            while (rs.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,7 +85,7 @@ public class PostDAOImpl implements PostDAO {
             {
                 throw new UserNotExisting("User does not exists");
             }
-            while (resultSet.next()) {
+            do {
                 postsToReturn.add(Post.builder()
                         .withId(resultSet.getInt(1))
                         .withUserId(resultSet.getInt(2))
@@ -93,6 +94,7 @@ public class PostDAOImpl implements PostDAO {
                         .withReplies(replyDAO.getReplies(resultSet.getInt(1)))
                         .build());
             }
+            while(resultSet.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }

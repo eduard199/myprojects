@@ -49,6 +49,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public String unfollow(int userId,int unfollowingUserId)
+    {
+        return userDAO.unfollow(userId,unfollowingUserId);
+    }
+
+    @Override
+    public String unregister(String userName)  throws UsernameNotFound
+    {
+        return userDAO.unregister(userName);
+    }
+
+    @Override
     public User convertUserRequestDTOToUser(UserRequestDTO user)
     {
         return User.builder()

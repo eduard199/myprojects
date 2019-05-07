@@ -22,9 +22,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-
     private UserService userService;
-
 
     @Autowired
     public UserController(UserService userService) {
@@ -62,5 +60,22 @@ public class UserController {
         return new ResponseEntity<>(this.userService.follow(userId,followingUserId), HttpStatus.CREATED);
     }
 
-
+    @RequestMapping(
+            value="/{unfollowingUserId}",
+            method = RequestMethod.DELETE,
+            consumes = "application/json",
+            produces = "application/json")
+    public ResponseEntity<String> unfollow(@RequestHeader("userId") int userId,@PathVariable("unfollowingUserId") int unfollowingUserId)
+    {
+        return new ResponseEntity<>(this.userService.unfollow(userId,unfollowingUserId),HttpStatus.OK);
+    }
+    @RequestMapping(
+            value="/{userName}/unregister",
+            method=RequestMethod.DELETE,
+            consumes="application/json",
+            produces="application/json")
+    public ResponseEntity<String> unregister(@PathVariable("userName") String userName)  throws UsernameNotFound
+    {
+        return new ResponseEntity<>(this.userService.unregister(userName),HttpStatus.OK);
+    }
 }

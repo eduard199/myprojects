@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class DbConnection
 {
-    private static final String url="jdbc:mysql://127.0.0.1:3306/Preemp?useSSL=false";
-    private static final String user="root";
-    private static final String password="root";
+    private static final String url="jdbc:mysql://127.0.0.1:3306/project?useSSL=false";
+    private static final String user="hbstudent";
+    private static final String password="hbstudent";
     public static Connection getConnection()
     {
         Connection conn=null;

@@ -40,8 +40,8 @@ public class LikeDAOImpl implements LikeDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 likes.add(Like.builder()
+                        .withPostId(resultSet.getInt(1))
                         .withUserId(resultSet.getInt(2))
-                        .withPostId(resultSet.getInt(3))
                         .build());
             }
         } catch (Exception e) {

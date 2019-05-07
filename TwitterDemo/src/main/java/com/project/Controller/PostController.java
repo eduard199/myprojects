@@ -54,4 +54,6 @@ public class PostController {
     {
         return postService.getFeed(userId);
     }
+
+    @RequestMapping()
 }

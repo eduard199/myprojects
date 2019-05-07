@@ -1,4 +1,4 @@
-This is a demo rest app who is simulating twitter.In this project I used Java SE&EE,MySQL,Spring.Functionalities:
+This is a demo rest app who is simulating twitter.In this project I used Java SE&EE,MySQL,Spring,REST Web.Functionalities:
 -register a user
 -searching a user
 -following another user
